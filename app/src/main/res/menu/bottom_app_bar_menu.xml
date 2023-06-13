@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="One" />
+
+    <item
+        android:id="@+id/navigation_video"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="Two" />
+
+    <item
+        android:id="@+id/navigation_live"
+        android:title="Three" />
+
+    <item
+        android:id="@+id/navigation_news"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="Four" />
+
+    <item
+        android:id="@+id/navigation_more"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="Five" />
+
+</menu>
