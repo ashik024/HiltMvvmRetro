@@ -3,6 +3,7 @@ package com.example.mvvmretrohilt.viewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mvvmretrohilt.modelClass.ItemClass
+import com.example.mvvmretrohilt.modelClass.PhotoClass
 import com.example.mvvmretrohilt.network.ApiServiceImp
 import com.example.mvvmretrohilt.utils.Resource
 import com.example.mvvmretrohilt.utils.SingleLiveEvent
@@ -19,12 +20,20 @@ class DataViewModel
     : ViewModel(){
 
     val dataList = SingleLiveEvent<Resource<List<ItemClass>>>()
+    val photoList = SingleLiveEvent<Resource<List<PhotoClass>>>()
 
 
     fun loadDataViewModel() {
         viewModelScope.launch {
             val response = resultFromResponse { apiServiceImp.getAllData() }
             dataList.postValue(response)
+        }
+    }
+
+    fun loadPhotoViewModel() {
+        viewModelScope.launch {
+            val response = resultFromResponse { apiServiceImp.getAllPhotos() }
+            photoList.postValue(response)
         }
     }
 

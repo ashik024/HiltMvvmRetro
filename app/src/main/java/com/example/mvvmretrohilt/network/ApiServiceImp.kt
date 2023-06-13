@@ -1,6 +1,7 @@
 package com.example.mvvmretrohilt.network
 
 import com.example.mvvmretrohilt.modelClass.ItemClass
+import com.example.mvvmretrohilt.modelClass.PhotoClass
 import javax.inject.Inject
 
 
@@ -15,5 +16,12 @@ constructor(private val apiService: ApiService){
         val response = apiService.getData()
 
          return response
+    }
+
+    suspend fun getAllPhotos(): List<PhotoClass> {
+
+        val response = apiService.getPhotos()
+
+        return response
     }
 }

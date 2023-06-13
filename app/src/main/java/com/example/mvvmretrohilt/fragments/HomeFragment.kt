@@ -17,11 +17,13 @@ import com.example.mvvmretrohilt.viewModel.DataViewModel
 import com.example.mvvmretrohilt.widget.MarginItemDecoration
 
 import com.example.mvvmretrohilt.databinding.FragmentHomeBinding
+import com.example.mvvmretrohilt.modelClass.PhotoClass
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment(), BaseListItemCallback<ItemClass> {
+//class HomeFragment : BaseFragment(), BaseListItemCallback<ItemClass> {
+class HomeFragment : BaseFragment(), BaseListItemCallback<PhotoClass> {
 
     private val binding get() = _binding!!
     private lateinit var mAdapter: ListItemAdapter
@@ -71,21 +73,44 @@ class HomeFragment : BaseFragment(), BaseListItemCallback<ItemClass> {
         }
 //        binding.progressBar.show()
         observeList()
-        dataViewModel.loadDataViewModel()
-
+//      dataViewModel.loadDataViewModel()
+        dataViewModel.loadPhotoViewModel()
 
     }
 
 
     private fun observeList() {
-        observe(dataViewModel.dataList) {
+//        observe(dataViewModel.dataList) {
+//            when(it) {
+//                is Resource.Success -> {
+//                    Log.d("observeList123", "observeList123: "+it.data)
+//
+//                    it.data.let { dataList ->
+//                        mAdapter.removeAll()
+//                        mAdapter.addAll(dataList ?: emptyList())
+//                    }
+//
+////                    mAdapter.removeAll()
+////                    it.data.contents?.let {
+////                        mAdapter.addAll(it)
+////                        binding.emptyViewGroup.isVisible = it.isEmpty()
+////                        binding.fixtureList.isVisible = it.isNotEmpty()
+////                    } ?: binding.emptyViewGroup.show()
+//                }
+//                is Resource.Failure -> {
+//                    Log.d("observeList", "observeList error: "+it.error.msg)
+//                }
+//            }
+//        }
+
+        observe(dataViewModel.photoList) {
             when(it) {
                 is Resource.Success -> {
                     Log.d("observeList123", "observeList123: "+it.data)
 
-                    it.data.let { dataList ->
+                    it.data.let { photoList ->
                         mAdapter.removeAll()
-                        mAdapter.addAll(dataList ?: emptyList())
+                        mAdapter.addAll(photoList ?: emptyList())
                     }
 
 //                    mAdapter.removeAll()

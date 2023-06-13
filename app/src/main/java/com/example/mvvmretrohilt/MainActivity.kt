@@ -2,6 +2,7 @@ package com.example.mvvmretrohilt
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.mvvmretrohilt.databinding.ActivityMainBinding
@@ -39,5 +40,9 @@ class MainActivity : AppCompatActivity() {
 //                .actionSpecifyAmountFragmentToConfirmationFragment()
 //        view.findNavController().navigate(action)
 
+        binding.liveMatchButton.setOnClickListener {
+
+            Toast.makeText(this,"working",Toast.LENGTH_LONG).show()
+        }
     }
 }
